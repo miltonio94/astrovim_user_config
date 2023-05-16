@@ -1,0 +1,141 @@
+[1mdiff --git a/init.lua b/init.lua[m
+[1mindex fb34405..5e81d02 100644[m
+[1m--- a/init.lua[m
+[1m+++ b/init.lua[m
+[36m@@ -1,16 +1,16 @@[m
+ return {[m
+   -- Configure AstroNvim updates[m
+   updater = {[m
+[31m-    remote = "origin", -- remote to use[m
+[31m-    channel = "stable", -- "stable" or "nightly"[m
+[31m-    version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)[m
+[31m-    branch = "nightly", -- branch name (NIGHTLY ONLY)[m
+[31m-    commit = nil, -- commit hash (NIGHTLY ONLY)[m
+[31m-    pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)[m
+[31m-    skip_prompts = false, -- skip prompts about breaking changes[m
+[32m+[m[32m    remote = "origin",     -- remote to use[m
+[32m+[m[32m    channel = "stable",    -- "stable" or "nightly"[m
+[32m+[m[32m    version = "latest",    -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)[m
+[32m+[m[32m    branch = "nightly",    -- branch name (NIGHTLY ONLY)[m
+[32m+[m[32m    commit = nil,          -- commit hash (NIGHTLY ONLY)[m
+[32m+[m[32m    pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)[m
+[32m+[m[32m    skip_prompts = false,  -- skip prompts about breaking changes[m
+     show_changelog = true, -- show the changelog after performing an update[m
+[31m-    auto_quit = false, -- automatically quit the current session after a successful update[m
+[31m-    remotes = { -- easily add new remotes to track[m
+[32m+[m[32m    auto_quit = false,     -- automatically quit the current session after a successful update[m
+[32m+[m[32m    remotes = {            -- easily add new remotes to track[m
+       --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url[m
+       --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,[m
+       --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork[m
+[36m@@ -18,7 +18,7 @@[m [mreturn {[m
+   },[m
+ [m
+   -- Set colorscheme to use[m
+[31m-  colorscheme = "astrodark",[m
+[32m+[m[32m  colorscheme = "catppuccin",[m
+ [m
+   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on[m
+   diagnostics = {[m
+[36m@@ -31,7 +31,7 @@[m [mreturn {[m
+     formatting = {[m
+       -- control auto formatting on save[m
+       format_on_save = {[m
+[31m-        enabled = true, -- enable or disable format on save globally[m
+[32m+[m[32m        enabled = true,     -- enable or disable format on save globally[m
+         allow_filetypes = { -- enable format on save for specified filetypes only[m
+           -- "go",[m
+         },[m
+[1mdiff --git a/mappings.lua b/mappings.lua[m
+[1mindex d87f7de..d431a2a 100644[m
+[1m--- a/mappings.lua[m
+[1m+++ b/mappings.lua[m
+[36m@@ -11,16 +11,22 @@[m [mreturn {[m
+     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },[m
+     ["<leader>bD"] = {[m
+       function()[m
+[31m-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)[m
+[32m+[m[32m        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)[m
+[32m+[m[32m          require("astronvim.utils.buffer").close([m
+[32m+[m[32m            bufnr)[m
+[32m+[m[32m        end)[m
+       end,[m
+       desc = "Pick to close",[m
+     },[m
+[32m+[m[32m    ["<leader>fs"] = { "<cmd>write<cr>" },[m
+     -- tables with the `name` key will be registered with which-key if it's installed[m
+     -- this is useful for naming menus[m
+     ["<leader>b"] = { name = "Buffers" },[m
+     -- quick save[m
+     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command[m
+   },[m
+[32m+[m[32m  v = {[m
+[32m+[m[32m  },[m
+   t = {[m
+     -- setting a mapping to false will disable it[m
+     -- ["<esc>"] = false,[m
+[1mdiff --git a/plugins/community.lua b/plugins/community.lua[m
+[1mindex 6918be5..38e6033 100644[m
+[1m--- a/plugins/community.lua[m
+[1m+++ b/plugins/community.lua[m
+[36m@@ -4,6 +4,33 @@[m [mreturn {[m
+   -- example of imporing a plugin, comment out to use it or add your own[m
+   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity[m
+ [m
+[31m-  -- { import = "astrocommunity.colorscheme.catppuccin" },[m
+[32m+[m[32m  { import = "astrocommunity.colorscheme.catppuccin" },[m
+[32m+[m[32m  {[m
+[32m+[m[32m    -- further customize the options set by the community[m
+[32m+[m[32m    "catppuccin",[m
+[32m+[m[32m    opts = {[m
+[32m+[m[32m      integrations = {[m
+[32m+[m[32m        sandwich = false,[m
+[32m+[m[32m        noice = true,[m
+[32m+[m[32m        mini = true,[m
+[32m+[m[32m        leap = true,[m
+[32m+[m[32m        markdown = true,[m
+[32m+[m[32m        neotest = true,[m
+[32m+[m[32m        cmp = true,[m
+[32m+[m[32m        overseer = true,[m
+[32m+[m[32m        lsp_trouble = true,[m
+[32m+[m[32m        ts_rainbow2 = true,[m
+[32m+[m[32m      },[m
+[32m+[m[32m    },[m
+[32m+[m[32m  },[m
+[32m+[m[32m  { import = "astrocommunity.colorscheme.gruvbox-baby" },[m
+[32m+[m[32m  { import = "astrocommunity.pack.typescript" },[m
+[32m+[m[32m  { import = "astrocommunity.pack.bash" },[m
+[32m+[m[32m  { import = "astrocommunity.pack.json" },[m
+[32m+[m[32m  { import = "astrocommunity.pack.python" },[m
+[32m+[m[32m  { import = "astrocommunity.pack.rust" },[m
+[32m+[m[32m  { import = "astrocommunity.terminal-integration.vim-tmux-yank" },[m
+[32m+[m[32m  { import = "astrocommunity.utility.transparent-nvim" }[m
+[32m+[m
+   -- { import = "astrocommunity.completion.copilot-lua-cmp" },[m
+ }[m
+[1mdiff --git a/plugins/mason.lua b/plugins/mason.lua[m
+[1mindex 6566f34..d8e739f 100644[m
+[1m--- a/plugins/mason.lua[m
+[1m+++ b/plugins/mason.lua[m
+[36m@@ -7,7 +7,7 @@[m [mreturn {[m
+     opts = function(_, opts)[m
+       -- add more things to the ensure_installed table protecting against community packs modifying it[m
+       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {[m
+[31m-        -- "lua_ls",[m
+[32m+[m[32m        "lua_ls", "elmls"[m
+       })[m
+     end,[m
+   },[m
+[1mdiff --git a/plugins/treesitter.lua b/plugins/treesitter.lua[m
+[1mindex 18c6da6..80e8a99 100644[m
+[1m--- a/plugins/treesitter.lua[m
+[1m+++ b/plugins/treesitter.lua[m
+[36m@@ -3,7 +3,7 @@[m [mreturn {[m
+   opts = function(_, opts)[m
+     -- add more things to the ensure_installed table protecting against community packs modifying it[m
+     opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {[m
+[31m-      -- "lua"[m
+[32m+[m[32m      "lua", "yaml", "elm", "c", "cpp", "rust", "bash", "javascript", "json", "make"[m
+     })[m
+   end,[m
+ }[m
