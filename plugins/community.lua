@@ -44,9 +44,9 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
-  { import = "astrocommunity.utility.transparent-nvim" },
+  -- { import = "astrocommunity.utility.transparent-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
-  { import = "astrocommunity.utility.neodim" },
+  -- { import = "astrocommunity.utility.neodim" },
   { import = "astrocommunity.startup.fsplash-nvim" },
   { import = "astrocommunity.terminal-integration.vim-tpipeline" },
 
