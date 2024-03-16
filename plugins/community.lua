@@ -27,13 +27,19 @@ return {
   { import = "astrocommunity.color.ccc-nvim" },
   { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.color.twilight-nvim" },
+  { import = "astrocommunity.color.transparent-nvim" },
+  { import = "astrocommunity.color.vim-highlighter" },
   { import = "astrocommunity.bars-and-lines.lualine-nvim" },
-  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.motion.harpoon" },
   { import = "astrocommunity.motion.hop-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
-  { import = "astrocommunity.editing-support.nvim-ts-rainbow2" },
-  -- { import = "astrocommunity.editing-support.true-zen-nvim" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  { import = "astrocommunity.editing-support.comment-box-nvim" },
+  { import = "astrocommunity.editing-support.nvim-devdocs" },
+  { import = "astrocommunity.editing-support.telescope-undo-nvim" },
+  { import = "astrocommunity.editing-support.true-zen-nvim" },
+
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.cmake" },
@@ -43,12 +49,13 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
-  -- { import = "astrocommunity.utility.transparent-nvim" },
-  { import = "astrocommunity.utility.noice-nvim" },
-  -- { import = "astrocommunity.utility.neodim" },
-  { import = "astrocommunity.startup.fsplash-nvim" },
-  { import = "astrocommunity.terminal-integration.vim-tpipeline" },
+  { import = "astrocommunity.pack.zig" },
 
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
+
+  { import = "astrocommunity.utility.noice-nvim" },
+
+  { import = "astrocommunity.startup.fsplash-nvim" },
+
+  { import = "astrocommunity.terminal-integration.vim-tpipeline" },
 }
